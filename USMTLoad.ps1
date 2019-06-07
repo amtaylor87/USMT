@@ -20,8 +20,7 @@ If (!(Test-path "$Drive`:\Profiles\$WSName"))
 #Execute loadstate.exe for the selected WS
 $Update = New-Object System.Diagnostics.ProcessStartInfo
 $Update.filename = "$Drive`:\USMT\Loadstate.exe"
-$Update.arguments = "$Drive`:\Profiles\$WSName","/c","/ui:IOWA*"
-[System.Diagnostics.Process]::Start($Update)
+$Update.arguments = "$Drive`:\Profiles\$WSName","/c"
 $Monitor = Get-Process -name loadstate
 $Monitor.WaitForExit()
 If ($LASTEXITCODE -eq 0) 
